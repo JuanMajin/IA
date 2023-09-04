@@ -22,10 +22,10 @@ posicionInicial_raton = (1,0)
 
 def obtenerSensores(entorno, posicionInicial_raton):
     x, y = posicionInicial_raton
-    sensorIzquierdo = entorno[x][y - 1] if y > 0 else -1
-    sensorArriba = entorno[x - 1][y] if x > 0 else -1
-    sensorDerecho = entorno[x][y + 1] if y < len(entorno[0]) - 1 else -1
-    sensorAbajo = entorno[x + 1][y] if x < len(entorno) - 1 else -1
+    sensorIzquierdo = 1 if (y > 0 and entorno[x][y - 1] == 0) else 0
+    sensorArriba = 1 if (x > 0 and entorno[x - 1][y] == 0) else 0
+    sensorDerecho = 1 if (y < len(entorno[0]) - 1 and entorno[x][y + 1] == 0) else 0
+    sensorAbajo = 1 if (x < len(entorno) - 1 and entorno[x + 1][y] == 0) else 0
     hueleQueso = 1 if entorno[x][y] == 3 else 0
     return sensorIzquierdo, sensorArriba, sensorDerecho, sensorAbajo, hueleQueso
 
